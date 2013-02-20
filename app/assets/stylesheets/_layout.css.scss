@@ -1,0 +1,46 @@
+body {
+  background: #fff;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1;
+  color: #222;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  padding-top: 100px;
+}
+
+h1 {
+  font-size: 31px;
+  font-weight: 300;
+
+  small {
+    font-size: 21px;
+    color: #666;
+  }
+}
+
+h2 {
+  font-size: 19px;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+#header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  color: #fff;
+  background: #222;
+  @include box-shadow(0 0 10px rgba(0,0,0,0.5));
+  width: 100%;
+  padding: 10px 20px;
+
+  a {
+    color: #fff;
+  }
+}

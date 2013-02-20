@@ -1,0 +1,11 @@
+<h1>Team Members</h1>
+
+<ul>
+  {{#each teamMember in teamMembers}}
+    <li>{{#linkTo 'teamMember' teamMember}}{{teamMember.fullName}}{{/linkTo}}</li>
+  {{else}}
+    <li>There are no team members.</li>
+  {{/each}}
+</ul>
+
+{{outlet}}

@@ -1,0 +1,16 @@
+<h1>
+  {{fullName}}
+  <small>{{nickname}}</small>
+</h1>
+
+<h3>{{title}}</h3>
+
+<p>Hired at: {{hiredAt}}</p>
+
+<address>
+  <a {{bindAttr href='mailto'}}>{{email}}</a>
+</address>
+
+<p>{{#linkTo 'teamMembers'}}Back{{/linkTo}}</p>
+
+{{outlet}}

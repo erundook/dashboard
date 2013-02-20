@@ -1,0 +1,11 @@
+<h1>Stories</h1>
+
+<ul>
+  {{#each story in stories}}
+    <li>{{#linkTo 'story' story}}Story{{/linkTo}}</li>
+  {{else}}
+    <li>There are no stories.</li>
+  {{/each}}
+</ul>
+
+{{outlet}}
