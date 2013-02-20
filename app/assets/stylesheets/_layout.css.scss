@@ -8,12 +8,11 @@ body {
   color: #222;
   position: relative;
   -webkit-font-smoothing: antialiased;
-  padding-top: 100px;
+  padding-top: 34px;
 }
 
 h1 {
   font-size: 31px;
-  font-weight: 300;
 
   small {
     font-size: 21px;
@@ -23,6 +22,11 @@ h1 {
 
 h2 {
   font-size: 19px;
+}
+
+h1,
+h2 {
+  font-weight: 300;
 }
 
 a {
@@ -38,9 +42,45 @@ a {
   background: #222;
   @include box-shadow(0 0 10px rgba(0,0,0,0.5));
   width: 100%;
-  padding: 10px 20px;
 
   a {
     color: #fff;
   }
+
+  h2 {
+    float: left;
+    line-height: 34px;
+    padding: 0 10px;
+  }
+
+  nav {
+    float: right;
+    display: inline-block;
+
+    ul {
+      display: inline-block;
+      float: left;
+
+      li {
+        float: left;
+        display: inline-block;
+
+        a {
+          display: inline-block;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding: 10px;
+
+          &.active {
+            background: rgba(255,255,255,0.2);
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+          }
+        }
+      }
+    }
+  }
+}
+
+#content {
+
 }

@@ -2,11 +2,15 @@
   <h2>Dashboard</h2>
 
   <nav>
-    {{#linkTo "index"}}Home{{/linkTo}}
-    {{#linkTo "teamMembers"}}Team Members{{/linkTo}}
-    {{#linkTo "sources"}}Sources{{/linkTo}}
-    {{#linkTo "stories"}}Stories{{/linkTo}}
+    <ul>
+      <li>{{#linkTo "index"}}Home{{/linkTo}}</li>
+      <li>{{#linkTo "teamMembers"}}Team Members{{/linkTo}}</li>
+      <li>{{#linkTo "sources"}}Sources{{/linkTo}}</li>
+      <li>{{#linkTo "stories"}}Stories{{/linkTo}}</li>
+    </ul>
   </nav>
 </header>
 
+<div id="content">
 {{outlet}}
+</div>
