@@ -29,10 +29,12 @@ Source.create(
 
 # Stories
 
-Story.create(
-  source: Source.first,
-  team_member: TeamMember.first,
-  preferences: {
-    test: '123'
-  }
-)
+8.times do
+  Story.create(
+    source: Source.all.sample,
+    team_member: TeamMember.all.sample,
+    preferences: {
+      test: '123'
+    }
+  )
+end
