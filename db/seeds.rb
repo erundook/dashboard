@@ -36,4 +36,3 @@ Story.create(
     test: '123'
   }
 )
-

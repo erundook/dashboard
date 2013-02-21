@@ -1,10 +1,13 @@
 App.Router.map(function() {
-  this.resource('teamMembers', { path: '/team_members' });
-  this.resource('teamMember', { path: '/team_members/:team_member_id' });
+  this.resource('teamMembers', function() {
+    this.resource('teamMember', { path: ':team_member_id' });
+  });
 
-  this.resource('sources', { path: '/sources' });
-  this.resource('source', { path: '/sources/:source_id' });
+  this.resource('sources', function() {
+    this.resource('source', { path: ':source_id' });
+  });
 
-  this.resource('stories', { path: '/stories' });
-  this.resource('story', { path: '/stories/:story_id' });
+  this.resource('stories', function() {
+    this.resource('story', { path: ':story_id' });
+  });
 });
