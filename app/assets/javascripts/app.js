@@ -1,4 +1,5 @@
-//= require ./adapter
+//= require_tree ./initializers
+//= require_tree ./lib
 //= require ./store
 //= require_tree ./models
 //= require_tree ./controllers

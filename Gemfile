@@ -6,7 +6,9 @@ gem 'ember-rails'
 gem 'jquery-rails'
 gem 'mini_magick'
 gem 'pg'
+gem 'pusher'
 gem 'rails', '3.2.12'
+gem 'sidekiq'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
