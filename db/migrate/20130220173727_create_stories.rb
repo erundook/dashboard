@@ -5,6 +5,7 @@ class CreateStories < ActiveRecord::Migration
       t.belongs_to :team_member
       t.belongs_to :source
       t.hstore :preferences
+      t.string :source_uid
 
       t.timestamps
     end

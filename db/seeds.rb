@@ -22,8 +22,13 @@ TeamMember.create(
 
 Source.create(
   name: 'Twitter',
+  source_type: 'twitter',
   preferences: {
-    test: '123'
+    query: {
+      search_term: 'coconate',
+      hashtag: '#ruby',
+      handle: '@tonycoco'
+    }
   }
 )
 
@@ -35,6 +40,7 @@ Source.create(
     team_member: TeamMember.all.sample,
     preferences: {
       test: '123'
-    }
+    },
+    source_uid: Digest::SHA1.hexdigest(Time.zone.now.to_s)
   )
 end
