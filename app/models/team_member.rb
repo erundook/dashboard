@@ -4,4 +4,6 @@ class TeamMember < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   has_many :stories
+
+  pubsubable
 end

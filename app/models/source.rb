@@ -5,6 +5,8 @@ class Source < ActiveRecord::Base
 
   has_many :stories
 
+  pubsubable
+
   def fetch_updates
     SourceTypes.registered_types[self.source_type.to_s].new(self).fetch_updates
   end

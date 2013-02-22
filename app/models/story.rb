@@ -7,4 +7,6 @@ class Story < ActiveRecord::Base
   delegate :source_type, to: :source
 
   serialize :preferences, ActiveRecord::Coders::Hstore
+
+  pubsubable
 end
