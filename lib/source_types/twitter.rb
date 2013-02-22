@@ -1,8 +1,7 @@
 module SourceTypes
   class Twitter < Base
     def initialize(source)
-      @source = source
-      @query = eval(@source.preferences['query'] || '')
+      super(source)
     end
 
     def fetch_updates

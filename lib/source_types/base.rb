@@ -1,6 +1,8 @@
 module SourceTypes
   class Base
     def initialize(source)
+      @source = source
+      @query = eval(@source.preferences['query'] || '')
     end
 
     def fetch_updates
