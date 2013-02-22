@@ -3,6 +3,7 @@ class CreateSources < ActiveRecord::Migration
     execute "CREATE EXTENSION IF NOT EXISTS hstore"
     create_table :sources do |t|
       t.string :name
+      t.string :source_type
       t.hstore :preferences
 
       t.timestamps

@@ -1,3 +1,3 @@
 class StorySerializer < ActiveModel::Serializer
-  attributes :id, :preferences
+  attributes :id, :preferences, :source_type
 end

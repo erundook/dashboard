@@ -58,6 +58,7 @@ CREATE TABLE schema_migrations (
 CREATE TABLE sources (
     id integer NOT NULL,
     name character varying(255),
+    source_type character varying(255),
     preferences hstore,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
@@ -92,6 +93,7 @@ CREATE TABLE stories (
     team_member_id integer,
     source_id integer,
     preferences hstore,
+    source_uid character varying(255),
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );

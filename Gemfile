@@ -9,6 +9,8 @@ gem 'pg'
 gem 'pusher'
 gem 'rails', '3.2.12'
 gem 'sidekiq'
+gem 'twitter'
+gem 'whenever', :require => false
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
