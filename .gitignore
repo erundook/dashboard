@@ -16,3 +16,5 @@
 
 # Environment
 config/initializers/_env.rb
+
+.DS_Store
