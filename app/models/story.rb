@@ -8,5 +8,5 @@ class Story < ActiveRecord::Base
 
   serialize :preferences, ActiveRecord::Coders::Hstore
 
-  pubsubable
+  # pubsubable
 end
