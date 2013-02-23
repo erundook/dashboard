@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: dashboard_development
   pool: 5
-  username: root
+  # username: root
   password:
 
 test:
@@ -11,5 +11,5 @@ test:
   encoding: unicode
   database: dashboard_test
   pool: 5
-  username: root
+  # username: root
   password:
