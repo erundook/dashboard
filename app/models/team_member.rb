@@ -5,5 +5,5 @@ class TeamMember < ActiveRecord::Base
 
   has_many :stories
 
-  # pubsubable
+  pusherable('dashboard')
 end
