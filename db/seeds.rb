@@ -1,16 +1,12 @@
 # Team Members
 
-avatar = File.open(File.join(Rails.root, '/db/trip_mcgovern.jpg'))
-
 TeamMember.create(
   first_name: 'Tony',
   last_name: 'Coconate',
   title: 'Principal Consultant',
   hired_at: Time.now-1.month,
   email: 'tony.coconate@devmynd.com',
-  nickname: 'T.C.',
-  avatar: avatar
-
+  nickname: 'T.C.'
 )
 
 TeamMember.create(
@@ -19,8 +15,7 @@ TeamMember.create(
   title: 'Consultant',
   hired_at: Time.now-1.year,
   email: 'randy.burgess@devmynd.com',
-  nickname: 'Randerz',
-  avatar: avatar
+  nickname: 'Randerz'
 )
 
 # Sources

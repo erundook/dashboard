@@ -15,9 +15,9 @@
 /tmp
 
 # Environment
-config/initializers/_env.rb
+/config/initializers/_env.rb
 
 .DS_Store
 
-# carrierwave :file uploads
+# Carrierwave
 /public/uploads

@@ -16,7 +16,7 @@ App.TeamMember = DS.Model.extend({
     return 'mailto:' + this.get('email');
   }.property('email'),
 
-  picture: function() {
+  avatarURL: function() {
     return this.get('avatar')['avatar']['url'];
   }.property('avatar')
 });
