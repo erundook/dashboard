@@ -1,19 +1,20 @@
-<h1>
-  {{fullName}}
-  <small>{{nickname}}</small>
-</h1>
+<div class="team-member-card">
+  <img {{bindAttr src="avatarURL"}} class="avatar" />
 
-<h3>{{title}}</h3>
+  <h1>
+    {{fullName}}
+    <small>{{nickname}}</small>
+  </h1>
 
-<img {{bindAttr src="avatarURL"}}/>
+  <h3>{{title}}</h3>
 
-<p>Hired at: {{hiredAt}}</p>
+  <p>Hired at: {{hiredAt}}</p>
 
-<address>
-  <a {{bindAttr href='mailto'}}>{{email}}</a>
-</address>
+  <address>
+    <a {{bindAttr href='mailto'}}>{{email}}</a>
+  </address>
+</div>
 
 <p>{{#linkTo 'teamMembers'}}Back{{/linkTo}}</p>
-
 
 {{outlet}}
