@@ -1,10 +1,10 @@
-App.Pubsub = Ember.Object.extend({
+App.Pusher = Ember.Object.extend({
   key: function() {
     return Ember.$('meta[name=pusher-key]').attr('content');
   }.property(),
 
   init: function() {
-    console.log('PUBSUB: Starting...');
+    console.log('PUSHER: Starting...');
     var _this = this;
     this.service = new Pusher(this.get('key'));
     this.service.connection.bind('connected', function() { _this.connected(); });
@@ -26,23 +26,23 @@ App.Pubsub = Ember.Object.extend({
   },
 
   subscribe: function(channel) {
-    console.log('PUBSUB: Subscribed to "' + channel + '"');
+    console.log('PUSHER: Subscribed to "' + channel + '"');
     return this.service.subscribe(channel);
   },
 
   unsubscribe: function(channel) {
-    console.log('PUBSUB: Unsubscribed to "' + channel + '"');
+    console.log('PUSHER: Unsubscribed to "' + channel + '"');
     return this.service.unsubscribe(channel);
   },
 
   handleEvent: function(eventName, data) {
     var router, unhandled;
 
-    console.log('PUBSUB: -------------------------------');
-    console.log('PUBSUB: Event: "' + eventName + '"');
-    console.log('PUBSUB: Data:');
+    console.log('PUSHER: -------------------------------');
+    console.log('PUSHER: Event: "' + eventName + '"');
+    console.log('PUSHER: Data:');
     console.log(data);
-    console.log('PUBSUB: -------------------------------');
+    console.log('PUSHER: -------------------------------');
 
     // Ignore Pusher internal events
     if (eventName.match(/^pusher:/)) return;

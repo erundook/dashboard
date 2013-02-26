@@ -1,9 +1,9 @@
 App.ApplicationRoute = Ember.Route.extend({
   activate: function() {
-    this.get('pubsub').subscribe('dashboard');
+    this.get('pusher').subscribe('dashboard');
   },
 
   deactivate: function() {
-    this.get('pubsub').unsuscribe('dashboard');
+    this.get('pusher').unsuscribe('dashboard');
   }
 });
