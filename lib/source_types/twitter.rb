@@ -2,6 +2,13 @@ module SourceTypes
   class Twitter < Base
     def initialize(source)
       super(source)
+
+      ::Twitter.configure do |config|
+        config.consumer_key       = @api_keys[:consumer_key]
+        config.consumer_secret    = @api_keys[:consumer_secret]
+        config.oauth_token        = @api_keys[:oauth_token]
+        config.oauth_token_secret = @api_keys[:oauth_secret]
+      end
     end
 
     def fetch_updates

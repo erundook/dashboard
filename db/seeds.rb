@@ -24,6 +24,12 @@ Source.create(
   name: 'Twitter',
   source_type: 'twitter',
   preferences: {
+    api_keys: {
+      consumer_key: ENV['TWITTER_CONSUMER_KEY'],
+      consumer_secret: ENV['TWITTER_CONSUMER_SECRET'],
+      oauth_token: ENV['TWITTER_OAUTH_TOKEN'],
+      oauth_secret: ENV['TWITTER_OAUTH_TOKEN_SECRET']
+    },
     query: {
       search_term: 'coconate',
       hashtag: '#ruby',
