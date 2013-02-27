@@ -1,3 +1,23 @@
+Ember.ControllerMixin.reopen({
+  pusher: null
+});
+
+Ember.Application.initializer({
+  name: 'pusher',
+
+  initialize: function(container, application) {
+    // Use the same instance of pusher everywhere in the app
+    container.optionsForType('pusher', { singleton: true });
+
+    // Register 'pusher:main' as our pusher object
+    container.register('pusher', 'main', application.Pusher);
+
+    // Inject the pusher object into all controllers and routes
+    container.typeInjection('controller', 'pusher', 'pusher:main');
+    container.typeInjection('route', 'pusher', 'pusher:main');
+  }
+});
+
 App.Pusher = Ember.Object.extend({
   key: function() {
     return Ember.$('meta[name=pusher-key]').attr('content');
@@ -38,14 +58,14 @@ App.Pusher = Ember.Object.extend({
   handleEvent: function(eventName, data) {
     var router, unhandled;
 
+    // Ignore Pusher internal events
+    if (eventName.match(/^pusher:/)) return;
+
     console.log('PUSHER: -------------------------------');
     console.log('PUSHER: Event: "' + eventName + '"');
     console.log('PUSHER: Data:');
     console.log(data);
     console.log('PUSHER: -------------------------------');
-
-    // Ignore Pusher internal events
-    if (eventName.match(/^pusher:/)) return;
 
     router = this.get('container').lookup('router:main');
     try {

@@ -2,7 +2,7 @@
 
 <ul>
   {{#each story in stories}}
-    <li>{{#linkTo 'story' story}}Story{{/linkTo}}</li>
+    <li>{{#linkTo 'story' story}}Story {{story.id}} {{story.sourceUID}}{{/linkTo}}</li>
   {{else}}
     <li>There are no stories.</li>
   {{/each}}
