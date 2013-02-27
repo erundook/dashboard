@@ -56,7 +56,7 @@ App.Pusher = Ember.Object.extend({
   },
 
   handleEvent: function(eventName, data) {
-    var router, unhandled;
+    var router, unhandled, eventArray, record;
 
     // Ignore Pusher internal events
     if (eventName.match(/^pusher:/)) return;
@@ -73,6 +73,24 @@ App.Pusher = Ember.Object.extend({
     } catch (e) {
       unhandled = e.message.match(/Nothing handled the event/);
       if (!unhandled) { throw e };
+    }
+
+    try {
+      eventArray = eventName.split('.');
+      record = App[eventArray[0].classify()].find(data.model_id);
+
+      if (record.get('id') && record.get('stateManager').get('currentState.name') != 'inFlight') {
+        switch (eventArray[1]) {
+          case 'create': record.get('stateManager').goToState('loaded');
+            break;
+          case 'update': record.reload();
+            break;
+          case 'destroy': record.get('stateManager').goToState('deleted.saved');
+            break;
+        }
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
 });
