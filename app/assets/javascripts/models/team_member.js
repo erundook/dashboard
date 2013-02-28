@@ -7,6 +7,8 @@ App.TeamMember = DS.Model.extend({
   avatar: DS.attr('object'),
   hiredAt: DS.attr('date'),
   stories: DS.hasMany('App.Story'),
+  createdAt: DS.attr('date'),
+  updatedAt: DS.attr('date'),
 
   fullName: function() {
     return this.get('firstName') + ' ' + this.get('lastName');
@@ -16,7 +18,7 @@ App.TeamMember = DS.Model.extend({
     return 'mailto:' + this.get('email');
   }.property('email'),
 
-  avatarURL: function() {
+  avatarUrl: function() {
     return this.get('avatar')['avatar']['url'];
   }.property('avatar')
 });
