@@ -1,7 +1,7 @@
 <h1>Sources</h1>
 
 <ul>
-  {{#each source in sources}}
+  {{#each source in controller}}
     <li>{{#linkTo 'source' source}}{{source.name}}{{/linkTo}}</li>
   {{else}}
     <li>There are no sources.</li>

@@ -1,7 +1,7 @@
 <h1>Stories</h1>
 
 <ul>
-  {{#each story in stories}}
+  {{#each story in controller}}
     <li>{{#linkTo 'story' story}}Story {{story.id}} {{story.sourceUid}}{{/linkTo}}</li>
   {{else}}
     <li>There are no stories.</li>

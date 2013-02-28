@@ -1,22 +1,15 @@
 # Team Members
 
-TeamMember.create(
-  first_name: 'Tony',
-  last_name: 'Coconate',
-  title: 'Principal Consultant',
-  hired_at: Time.now-1.month,
-  email: 'tony.coconate@devmynd.com',
-  nickname: 'T.C.'
-)
-
-TeamMember.create(
-  first_name: 'Randy',
-  last_name: 'Burgess',
-  title: 'Consultant',
-  hired_at: Time.now-1.year,
-  email: 'randy.burgess@devmynd.com',
-  nickname: 'Randerz'
-)
+5.times do
+  TeamMember.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    title: Faker::Name.title,
+    hired_at: Time.now-((5..30).to_a.sample).month,
+    email: Faker::Internet.email,
+    nickname: Faker::Internet.user_name
+  )
+end
 
 # Sources
 
@@ -31,22 +24,22 @@ Source.create(
       oauth_secret: ENV['TWITTER_OAUTH_TOKEN_SECRET']
     },
     query: {
-      search_term: 'coconate',
-      hashtag: '#ruby',
-      handle: '@tonycoco'
+      search_term: Faker::Lorem.word,
+      hashtag: "##{Faker::Lorem.word}",
+      handle: "@#{Faker::Internet.user_name}"
     }
   }
 )
 
 # Stories
 
-8.times do
+15.times do
   Story.create(
     source: Source.all.sample,
     team_member: TeamMember.all.sample,
     preferences: {
-      test: '123'
+      text: Faker::Lorem.sentence
     },
-    source_uid: Digest::SHA1.hexdigest(Time.zone.now.to_s)
+    source_uid: Digest::SHA1.hexdigest(Faker::Internet.user_name)
   )
 end
