@@ -2,8 +2,8 @@ class Api::SourcesController < ApplicationController
   respond_to :json
 
   def index
-    @source = Source.all
-    respond_with @source
+    @sources = Source.all
+    respond_with @sources
   end
 
   def show
