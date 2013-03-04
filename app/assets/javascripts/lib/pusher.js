@@ -77,7 +77,7 @@ App.Pusher = Ember.Object.extend({
 
     try {
       eventArray = eventName.split('.');
-      record = App[eventArray[0].classify()].find(data.model_id);
+      record = App[eventArray[0].classify()].find(data.id);
 
       if (record.get('id') && record.get('stateManager').get('currentState.name') != 'inFlight') {
         switch (eventArray[1]) {
