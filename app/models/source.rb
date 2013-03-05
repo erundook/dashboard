@@ -8,6 +8,12 @@ class Source < ActiveRecord::Base
   pusherable('dashboard')
 
   def fetch_updates
-    SourceTypes.registered_types[self.source_type.to_s].new(self).fetch_updates
+    registered_source_type.fetch_updates
+  end
+
+  private
+
+  def registered_source_type
+    @registered_source_type ||= SourceTypes.registered_types[self.source_type.to_s].new(self)
   end
 end

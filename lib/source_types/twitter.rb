@@ -16,7 +16,7 @@ module SourceTypes
 
       @query.each do |query, value|
         Array(send(query.to_sym, value)).each do |result|
-          @source.stories.create(preferences: result.to_hash, source_uid: result.id)
+          @source.stories.create(preferences: result, source_uid: result.id)
         end
       end
     end
@@ -25,7 +25,7 @@ module SourceTypes
       ::Twitter.user(query).status
     end
 
-    def search_term(query)
+    def search(query)
       ::Twitter.search(query, { since_id: since_id }).results
     end
 

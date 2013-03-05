@@ -40,20 +40,13 @@ Source.create(
       oauth_secret: ENV['TWITTER_OAUTH_TOKEN_SECRET']
     },
     query: {
-      search_term: 'devmynd'
+      search: 'devmynd'
     }
   }
 )
 
 # Stories
 
-15.times do
-  Story.create(
-    source: Source.all.sample,
-    team_member: TeamMember.all.sample,
-    preferences: {
-      text: Faker::Lorem.sentence
-    },
-    source_uid: Digest::SHA1.hexdigest(Faker::Internet.user_name)
-  )
+Source.all.each do |source|
+  source.fetch_updates
 end
