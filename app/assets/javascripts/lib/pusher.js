@@ -24,7 +24,7 @@ App.Pusher = Ember.Object.extend({
   }.property(),
 
   init: function() {
-    console.log('PUSHER: Starting...');
+    Ember.debug('Pusher.init');
     var _this = this;
     this.service = new Pusher(this.get('key'));
     this.service.connection.bind('connected', function() { _this.connected(); });
@@ -46,12 +46,12 @@ App.Pusher = Ember.Object.extend({
   },
 
   subscribe: function(channel) {
-    console.log('PUSHER: Subscribed to "' + channel + '"');
+    Ember.debug('Pusher.subscribe : "' + channel + '"');
     return this.service.subscribe(channel);
   },
 
   unsubscribe: function(channel) {
-    console.log('PUSHER: Unsubscribed to "' + channel + '"');
+    Ember.debug('Pusher.unsubscribe : "' + channel + '"');
     return this.service.unsubscribe(channel);
   },
 
@@ -61,11 +61,7 @@ App.Pusher = Ember.Object.extend({
     // Ignore Pusher internal events
     if (eventName.match(/^pusher:/)) return;
 
-    console.log('PUSHER: -------------------------------');
-    console.log('PUSHER: Event: "' + eventName + '"');
-    console.log('PUSHER: Data:');
-    console.log(data);
-    console.log('PUSHER: -------------------------------');
+    Ember.debug('Pusher.handleEvent : "' + eventName + '"');
 
     router = this.get('container').lookup('router:main');
     try {

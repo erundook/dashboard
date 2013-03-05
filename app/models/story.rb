@@ -8,5 +8,7 @@ class Story < ActiveRecord::Base
 
   serialize :preferences, ActiveRecord::Coders::Hstore
 
+  validates_uniqueness_of :source_uid
+
   pusherable('dashboard')
 end

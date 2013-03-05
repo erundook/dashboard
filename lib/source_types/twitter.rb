@@ -15,7 +15,9 @@ module SourceTypes
       return if @query.blank?
 
       @query.each do |query, value|
-        send(query.to_sym, value)
+        Array(send(query.to_sym, value)).each do |result|
+          @source.stories.create(preferences: result.to_hash, source_uid: result.id)
+        end
       end
     end
 
@@ -34,7 +36,7 @@ module SourceTypes
     private
 
     def since_id
-      @since_id ||= Story.includes(:source).where('sources.source_type' => @source.source_type).last.source_uid
+      @since_id ||= Story.includes(:source).where('sources.source_type' => @source.source_type).last.source_uid rescue nil
     end
   end
 
