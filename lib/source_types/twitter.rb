@@ -21,10 +21,6 @@ module SourceTypes
       end
     end
 
-    def hashtag(query)
-      search_term(query)
-    end
-
     def handle(query)
       ::Twitter.user(query).status
     end
